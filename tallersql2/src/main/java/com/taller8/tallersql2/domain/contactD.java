@@ -3,7 +3,6 @@ package com.taller8.tallersql2.domain;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
