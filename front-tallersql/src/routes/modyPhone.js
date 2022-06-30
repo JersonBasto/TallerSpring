@@ -4,25 +4,38 @@ import Cookies from "universal-cookie";
 import { phone } from "../fetch/getContacts";
 import Swal from "sweetalert2";
 import { modiPhone } from "../fetch/modifyPhone";
-
+/**
+ * Retorna la funcion encargada de modificar datos del telefono
+ * @returns retorna la funcion ModifyPhone
+ * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+ */
 function ModifyPhone() {
   const [operator, setOperator] = useState("");
   const [number, setNumber] = useState("");
   const [owner, setOwner] = useState("");
   const cookies = new Cookies();
   const id = cookies.get("id-phone");
-
+  /**
+   * Consigue los datos del telefono a traves del id
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const getInfo = async () => {
     var res = await phone(id);
     setOperator(res.operator);
     setNumber(res.number);
     setOwner(res.owner);
   };
-
+  /**
+   * llama la funcion una sola vez
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   useEffect(() => {
     getInfo();
   }, []);
-
+  /**
+   * Valida la informacion dada por el usuario
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const validateInfo = () => {
     if (operator === "" || operator === null) {
       Swal.fire({
@@ -56,7 +69,10 @@ function ModifyPhone() {
       modiPhone(data, id);
     }
   };
-
+  /**
+   * Retorna el HTML
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   return (
     <div id="containerG">
       <div id="form-create">

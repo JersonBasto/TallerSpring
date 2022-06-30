@@ -5,27 +5,45 @@ import { deleteContact } from "../fetch/deleteContact";
 import { MdOutlineAddBox } from "react-icons/md";
 import { phone } from "../fetch/getContacts";
 import Swal from "sweetalert2";
-
+/**
+ * Muestra la informacion del telefono junto a sus contactos
+ *
+ * @returns Retorna la funcion Viewuser
+ * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+ */
 function Viewuser() {
   const cookies = new Cookies();
   const id = cookies.get("id-phone");
   const [phoneO, setPhone] = useState([]);
   const [contacts, setContacts] = useState([]);
-
+  /**
+   * Obtiene la informacion del telefono
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const getInfo = async () => {
     var res = await phone(id);
     setPhone(res);
     setContacts(res.contacts);
   };
-
+  /**
+   * Llama la funcion getInfo solo una vez
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   useEffect(() => {
     getInfo();
   }, []);
-
+  /**
+   * Redirecciona para crear el contacto en el telefono
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const createContact = () => {
     window.location.href = "./createContact";
   };
-
+  /**
+   * Borra el contacto
+   * @param {*} id Recibe el id del contacto a borrar
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const delContact = async (id) => {
     Swal.fire({
       title: "¿Quiere borrar el Contacto?",
@@ -41,13 +59,21 @@ function Viewuser() {
       }
     });
   };
-
+  /**
+   * Modifica el contacto
+   *
+   * @param {*} idUser recibe el id del contacto a modificar
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const modContact = (idUser) => {
     const cookies = new Cookies();
     cookies.set("id-contact", idUser, { maxAge: 10 * 60 }, { path: "/" });
     window.location.href = "./updatecontact";
   };
-
+  /**
+   * Retorna el HTML
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   return (
     <div id="containerPri">
       <h3 id="name">

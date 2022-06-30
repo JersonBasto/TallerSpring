@@ -5,6 +5,11 @@ import "../css/createContact.css";
 import Cookies from "universal-cookie";
 import { sendData } from "../fetch/createContact";
 
+/**
+ * 
+ * @returns Se retorna la funcion Creacion de contacto
+ * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+ */
 function Createcontact() {
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
@@ -12,7 +17,11 @@ function Createcontact() {
   const [Date, setDate] = useState("");
   const cookies = new Cookies();
   const id = cookies.get("id-phone");
-
+  /**
+   * Verifica la informacion enviada en el formulario
+   * 
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const sendInfo = () => {
     if (Name === "" || Name === null) {
       Swal.fire({
@@ -67,7 +76,10 @@ function Createcontact() {
       });
     }
   };
-
+  /**
+   * Retorna el codigo HTML
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   return (
     <div id="containerG">
       <div id="form-create">

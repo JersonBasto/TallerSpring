@@ -6,7 +6,12 @@ import Cookies from "universal-cookie";
 import { sendData } from "../fetch/createContact";
 import { getContact } from "../fetch/getContact";
 import { modiContact } from "../fetch/modifyContact";
-
+/**
+ * Retorna la funcion a mostrar en HTML
+ *
+ * @returns Retorna la funcion ModifyContact
+ * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+ */
 function ModifyContact() {
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
@@ -15,7 +20,11 @@ function ModifyContact() {
   const cookies = new Cookies();
   const id = cookies.get("id-phone");
   const idC = cookies.get("id-contact");
-
+  /**
+   * La funcion getInfo obtiene los datos del contacto
+   * y obtiene la variable de id por medio la cookie
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const getInfo = async () => {
     var res = await getContact(idC);
     setName(res.name);
@@ -23,11 +32,17 @@ function ModifyContact() {
     setNumber(res.number);
     setDate(res.date);
   };
-
+  /**
+   * Se encarga de llamar la funcion getInfo una sola vez
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   useEffect(() => {
     getInfo();
   }, []);
-
+  /**
+   * Verifica la informacion dada en el formato
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const sendInfo = () => {
     if (Name === "" || Name === null) {
       Swal.fire({
@@ -82,7 +97,10 @@ function ModifyContact() {
       });
     }
   };
-
+  /**
+   * Retorna el HTML
+   *@author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   return (
     <div id="containerG">
       <div id="form-create">

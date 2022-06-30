@@ -3,13 +3,19 @@ import Swal from "sweetalert2";
 import validator from "validator";
 import "../css/createContact.css";
 import Cookies from "universal-cookie";
-
+/**
+ * 
+ * @returns Retorna la funcion Createphone
+ */
 function Createphone() {
   const [Operator, setOperator] = useState("");
   const [NumberF, setNumber] = useState(0);
   const [owner, setOwner] = useState("");
   const cookies = new Cookies();
-
+  /**
+   * Envia los datos para crear el telefono a partir de un fetch
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const sendData = async () => {
     const data = {
         operator: Operator,
@@ -26,7 +32,10 @@ function Createphone() {
       }
     });
   };
-
+  /**
+   * Verificar la informacion a enviar
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   const sendInfo = () => {
     if (Operator === "" || Operator === null) {
       Swal.fire({
@@ -55,7 +64,10 @@ function Createphone() {
       sendData();
     }
   };
-
+  /**
+   * Retorna el HTML
+   * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+   */
   return (
     <div id="containerG">
       <div id="form-create">

@@ -1,6 +1,11 @@
 import React from "react";
 import { Card, Button, Container } from "react-bootstrap";
-
+/**
+ * Se imprime la pagina home de inicio
+ * 
+ * @returns Retorna la funcion Home
+ * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+ */
 function Home() {
   return (
     <Card className="text-center">

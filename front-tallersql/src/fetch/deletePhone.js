@@ -1,5 +1,12 @@
 import Swal from "sweetalert2";
 
+/**
+ * Envia el id al backend para borrar el Telefono
+ * 
+ * @param {*} id Recibe el id a enviar en el fetch
+ * @author {*}  Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+ */
+
 export const delPhone = async (phoneId) => {
   var response = await fetch("http://localhost:9090/phone/" + phoneId, {
     method: "DELETE",
