@@ -17,31 +17,51 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Data;
 
+/**
+ * Tabla contacto
+ * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+ */
+
 @Data
 @Entity
 @Table(name = "contact")
 
 public class contactD implements Serializable {
 
+    /**
+     * Variable usada para manejar el tema del identificador de la tupla (consecutivo)
+     */
     private static final long serialVersionUID = 1L;
+
+    /**
+     * Identificador del contacto
+     */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contact_id")
-    private Long Id;
-
+    private Long id;
+    /**
+     * Nombre del contacto
+     */
     @Column(name = "contact_name")
-    private String Name;
-
+    private String name;
+    /**
+     * Email del contacto
+     */
     @Column(name = "contact_email")
-    private String Email;
+    private String email;
 
     @Column(name = "contact_number")
-    private BigInteger Number;
-
+    private BigInteger number;
+    /**
+     * Fecha de cumpleaños del contacto
+     */
     @Column(name = "contact_date")
-    private Date Date;
-
+    private Date date;
+    /**
+     * Relacion entre el contacto y el telefono (Un telefono puede tener muchos contactos)
+     */
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = phoneD.class, optional = false)
     @JoinColumn(name = "phone_id")
     @JsonBackReference

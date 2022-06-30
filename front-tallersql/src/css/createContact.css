@@ -1,0 +1,110 @@
+#containerG {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: white;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#form-create {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 500px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 10px 1px;
+}
+
+#form-create #input {
+    position: relative;
+    width: 250px;
+}
+#form-create #input input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(0, 149, 255);
+    border-radius: 10px;
+    outline: none;
+    color: black;
+    font-size: 120%;
+    transition: 0.5s;
+}
+#form-create #input span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    color:rgb(0, 149, 255);
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+#form-create #input:nth-child(4) span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    color:rgb(0, 149, 255);
+    text-transform: uppercase;
+    visibility: hidden;
+}
+#form-create #input input:valid ~ span,
+#form-create #input input:focus ~ span
+{
+    color:rgb(102, 233, 50);
+    transform: translateX(10px) translateY(-7px);
+    font-size: 70%;
+    padding: 0 10px;
+    background: white;
+    border-left: 1px solid #2cd632;
+    border-right: 1px solid #2cd632;
+}
+#form-create #input:nth-child(1) input:valid ~ span,
+#form-create #input:nth-child(1) input:focus ~ span{
+    background: #2cd632;
+    border-radius: 2px;
+    color: black;
+}
+#form-create #input:nth-child(2) input:valid ~ span,
+#form-create #input:nth-child(2) input:focus ~ span{
+    background: #2cd632;
+    border-radius: 2px;
+    color: black;
+}
+#form-create #input:nth-child(3) input:valid ~ span,
+#form-create #input:nth-child(3) input:focus ~ span{
+    background: #2cd632;
+    border-radius: 2px;
+    color: black;
+}
+#form-create #input:nth-child(4) input:valid ~ span,
+#form-create #input:nth-child(4) input:focus ~ span{
+    visibility: visible;
+    background: #2cd632;
+    border-radius: 2px;
+    color: black;
+}
+#Send{
+    border: 2px solid black;
+    background-color: white;
+    cursor: pointer;
+    border-color: #2cd632;
+    color: green;
+    border-radius: 5px;
+    padding: 10px;
+}
+#Send:hover{
+    background: #2cd632;
+    color: white;
+}
+#form-create #input input:valid,
+#form-create #input input:focus{
+    border:1px solid #2cd632;
+}

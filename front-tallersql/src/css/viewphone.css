@@ -1,0 +1,120 @@
+#containerPri {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#containerBox2 {
+    display: flex;
+    justify-content: baseline;
+    align-items: flex-start;
+    background: white;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 50px;
+}
+
+#data2 {
+    margin: 20px 0;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+    gap: 30px;
+}
+
+#data2 h3 {
+    font-size: 110%;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+#data2 h3 span {
+    font-size: 75%;
+    font-weight: 400;
+    opacity: 0.5;
+}
+#add{
+    color:green;
+}
+#add:hover{
+    color:rgb(14, 174, 14);
+    cursor:pointer;
+}
+#hadd{
+    transition: 0.5s;
+}
+#hadd span{
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+    transform: translateX(-70px);
+}
+#hadd:hover span{
+    visibility: visible;
+    transform: translateX(-90px) translateY(-25px);
+    color: rgb(8, 211, 8);
+    transition: 0.5s;
+    font-size: 120%;
+    font-weight: 600;
+}
+
+#containerBox2 #box2 {
+    background: rgb(210, 199, 199);
+    text-align: center;
+    border: 1px solid;
+    width: 260px;
+    height: 100px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+#containerBox2 #box2:hover {
+    height: 250px;
+}
+
+#containerBox2 #box2 #add {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+#botones{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+#botones button:nth-child(1){
+    padding: 5px;
+    background: rgb(88, 181, 231);
+    border-radius: 5px;
+    border: 1px solid;
+    color:white;
+    border-color:rgb(88, 181, 231);
+}
+#botones button:nth-child(2){
+    padding: 5px;
+    background: rgb(241, 77, 71);
+    border-radius: 5px;
+    border: 1px solid;
+    color:white;
+    border-color:rgb(241, 77, 71);
+}
+#botones button:nth-child(1):hover{
+    padding: 5px;
+    border-radius: 5px;
+    color:black;
+    background:white;
+}
+#botones button:nth-child(2):hover{
+    padding: 5px;
+    border-radius: 5px;
+    color:black;
+    background:white;
+}

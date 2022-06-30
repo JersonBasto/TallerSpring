@@ -16,28 +16,44 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
-
+/**
+ * Tabla de telefono
+ * @author Jerson Daniel Basto Gil <jdbastog@correo.udistrital.edu.co>
+ */
 @Data
 @Entity
 @Table(name = "phone")
 public class phoneD implements Serializable {
 
+    /**
+     * Variable usada para manejar el tema del identificador de la tupla (consecutivo)
+     */
     private static final long serialVersionUID = 1L;
-
+    /**
+     * Identificador del telefono
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "phone_id")
     private Long phoneId;
-
+    /**
+     * Operador del telefeno
+     */
     @Column(name = "phone_operator")
-    private String Operator;
-
+    private String operator;
+    /**
+     * Numero del telefono
+     */
     @Column(name = "phone_number")
     private BigInteger number;
-
+    /**
+     * Nombre del dueño del telefono
+     */
     @Column(name = "phone_owner")
     private String owner;
-
-    @OneToMany(fetch = FetchType.EAGER, targetEntity = contactD.class, mappedBy = "phone", cascade = CascadeType.REMOVE)
+    /**
+     * Relacion entre la tabla telefono y el contacto (Un telefono puede tener muchos contactos)
+     */
+    @OneToMany(fetch = FetchType.EAGER, targetEntity = contactD.class, mappedBy = "phone",cascade = CascadeType.ALL)
     private List<contactD> contacts = new ArrayList<>();
 }
