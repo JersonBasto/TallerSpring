@@ -79,7 +79,6 @@ public class userServices implements IUserService {
     @Transactional
     public contactD update(Long id, contactD user) {
         user.setId(id);
-        ;
         return contactDao.save(user);
     }
     /**
